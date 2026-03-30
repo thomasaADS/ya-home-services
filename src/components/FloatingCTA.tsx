@@ -25,11 +25,11 @@ export default function FloatingCTA() {
       {/* WhatsApp floating button - always visible */}
       <a
         href="#"
-        className="fixed right-4 bottom-36 lg:bottom-24 z-40 w-14 h-14 bg-[#25D366] hover:bg-[#20BD5A] text-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all flex items-center justify-center cursor-pointer"
+        className="fixed left-4 bottom-20 lg:bottom-24 z-40 w-12 h-12 bg-[#25D366] hover:bg-[#20BD5A] text-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all flex items-center justify-center cursor-pointer"
         aria-label="WhatsApp"
         title="שלח הודעה בוואטסאפ"
       >
-        <WhatsAppIcon className="w-7 h-7" />
+        <WhatsAppIcon className="w-6 h-6" />
       </a>
 
       {/* Mobile sticky bottom bar */}
@@ -58,7 +58,7 @@ export default function FloatingCTA() {
       {visible && (
         <a
           href="tel:050-0000000"
-          className="hidden lg:flex fixed bottom-8 left-8 z-40 items-center gap-2.5 bg-navy hover:bg-navy-light text-white font-semibold h-12 px-6 rounded-full transition-all cursor-pointer shadow-elevated hover:shadow-2xl hover:scale-105 animate-fade-in"
+          className="hidden lg:flex fixed bottom-8 right-8 z-40 items-center gap-2.5 bg-navy hover:bg-navy-light text-white font-semibold h-12 px-6 rounded-full transition-all cursor-pointer shadow-elevated hover:shadow-2xl hover:scale-105 animate-fade-in"
           aria-label="התקשר עכשיו"
         >
           <Phone className="w-4 h-4" />

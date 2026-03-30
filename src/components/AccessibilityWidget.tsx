@@ -107,7 +107,7 @@ export default function AccessibilityWidget() {
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed right-4 bottom-20 lg:bottom-8 z-50 w-12 h-12 bg-blue text-white rounded-full shadow-lg hover:bg-blue-dark hover:scale-110 transition-all flex items-center justify-center cursor-pointer"
+        className="fixed left-4 bottom-6 lg:bottom-8 z-50 w-12 h-12 bg-blue text-white rounded-full shadow-lg hover:bg-blue-dark hover:scale-110 transition-all flex items-center justify-center cursor-pointer"
         aria-label="תפריט נגישות"
         title="נגישות"
       >
@@ -116,7 +116,7 @@ export default function AccessibilityWidget() {
 
       {/* Panel */}
       {isOpen && (
-        <div className="fixed right-4 bottom-36 lg:bottom-24 z-50 w-72 bg-white rounded-2xl shadow-elevated border border-border animate-scale-in overflow-hidden">
+        <div className="fixed left-4 bottom-36 lg:bottom-24 z-50 w-72 bg-white rounded-2xl shadow-elevated border border-border animate-scale-in overflow-hidden">
           {/* Header */}
           <div className="flex items-center justify-between px-5 py-4 bg-blue text-white">
             <div className="flex items-center gap-2">
