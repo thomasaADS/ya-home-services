@@ -1,106 +1,116 @@
 import Image from 'next/image'
-import { Phone, FileText } from 'lucide-react'
+import { Phone, ArrowLeft, Star, Shield, Clock } from 'lucide-react'
 import Link from 'next/link'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] sm:min-h-[85vh] flex items-center bg-navy overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
-        />
-      </div>
-
-      {/* Gold accent line */}
-      <div className="absolute top-0 right-0 left-0 h-1 bg-gradient-to-l from-gold via-gold-light to-transparent" />
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 w-full pt-24 pb-16">
-        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-          {/* Content */}
-          <div className="flex-1 text-center lg:text-right">
+    <section className="relative min-h-screen bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-0 items-center min-h-screen pt-20 lg:pt-0">
+          {/* Content Side */}
+          <div className="relative z-10 py-12 lg:py-24 lg:pl-12">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-white/10 text-gold text-sm font-medium px-4 py-2 rounded-full mb-6 animate-fade-in-up">
-              <span className="w-2 h-2 bg-gold rounded-full" />
-              שירותי בית ותחזוקה מקצועיים בגוש דן
+            <div className="inline-flex items-center gap-2 bg-navy/5 text-navy text-sm font-medium px-4 py-2 rounded-full mb-8 animate-fade-in-up">
+              <span className="w-1.5 h-1.5 bg-green rounded-full" />
+              מקצוענים מומלצים בגוש דן
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-tight mb-6 animate-fade-in-up stagger-1">
+            <h1 className="text-[2.75rem] sm:text-6xl lg:text-7xl font-black text-navy leading-[1.1] mb-6 animate-fade-in-up delay-100">
               בית בידיים
-              <span className="block text-gold">טובות</span>
+              <span className="relative inline-block text-gold mr-3">
+                טובות
+                <svg className="absolute -bottom-2 right-0 w-full" viewBox="0 0 200 12" fill="none">
+                  <path d="M2 8C50 2 150 2 198 8" stroke="#C8A96E" strokeWidth="3" strokeLinecap="round" opacity="0.4" />
+                </svg>
+              </span>
             </h1>
 
             {/* Subheadline */}
-            <p className="text-lg sm:text-xl text-white/70 max-w-xl mx-auto lg:mx-0 mb-8 animate-fade-in-up stagger-2 leading-relaxed">
-              אינסטלציה, שיפוצים, התקנות ותחזוקה לכל בית.
-              <br className="hidden sm:block" />
-              שירות מקצועי, אמין ומהיר — מהשיחה הראשונה ועד לסיום העבודה.
+            <p className="text-lg sm:text-xl text-text-secondary max-w-lg mb-10 animate-fade-in-up delay-200 leading-relaxed">
+              אינסטלציה, שיפוצים, התקנות ותחזוקה מקצועית לכל בית.
+              שיחת ייעוץ ראשונית — ללא עלות.
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up stagger-3">
+            <div className="flex flex-col sm:flex-row gap-3 animate-fade-in-up delay-300">
               <a
                 href="tel:050-0000000"
-                className="inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-dark text-navy font-bold h-14 px-8 rounded-xl transition-all cursor-pointer text-lg shadow-lg shadow-gold/20 hover:shadow-gold/30 hover:scale-[1.02]"
+                className="group inline-flex items-center justify-center gap-2.5 bg-navy hover:bg-navy-light text-white font-bold h-14 px-8 rounded-2xl transition-all cursor-pointer text-lg relative overflow-hidden"
               >
-                <Phone className="w-5 h-5" />
-                <span>התקשר עכשיו</span>
+                <Phone className="w-5 h-5 relative z-10" />
+                <span className="relative z-10">התקשר עכשיו</span>
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold h-14 px-8 rounded-xl transition-all cursor-pointer text-lg border border-white/20 hover:border-white/30"
+                className="inline-flex items-center justify-center gap-2 bg-surface hover:bg-surface-alt text-navy font-semibold h-14 px-8 rounded-2xl transition-all cursor-pointer text-lg border border-border"
               >
-                <FileText className="w-5 h-5" />
                 <span>השאר פרטים</span>
+                <ArrowLeft className="w-4 h-4" />
               </Link>
             </div>
 
-            {/* Micro trust */}
-            <div className="flex items-center gap-6 justify-center lg:justify-start mt-8 animate-fade-in-up stagger-4">
-              <div className="flex items-center gap-2 text-white/50 text-sm">
-                <span className="text-gold">&#10003;</span>
-                ללא עלות הערכה
-              </div>
-              <div className="flex items-center gap-2 text-white/50 text-sm">
-                <span className="text-gold">&#10003;</span>
+            {/* Trust micro badges */}
+            <div className="flex flex-wrap items-center gap-5 mt-10 animate-fade-in-up delay-400">
+              <div className="flex items-center gap-2 text-text-muted text-sm">
+                <div className="w-8 h-8 bg-green/10 rounded-lg flex items-center justify-center">
+                  <Shield className="w-4 h-4 text-green" />
+                </div>
                 אחריות מלאה
               </div>
-              <div className="flex items-center gap-2 text-white/50 text-sm">
-                <span className="text-gold">&#10003;</span>
-                מענה מהיר
+              <div className="flex items-center gap-2 text-text-muted text-sm">
+                <div className="w-8 h-8 bg-blue/10 rounded-lg flex items-center justify-center">
+                  <Clock className="w-4 h-4 text-blue" />
+                </div>
+                מענה תוך שעה
+              </div>
+              <div className="flex items-center gap-2 text-text-muted text-sm">
+                <div className="w-8 h-8 bg-gold/10 rounded-lg flex items-center justify-center">
+                  <Star className="w-4 h-4 text-gold" />
+                </div>
+                10+ שנות ניסיון
               </div>
             </div>
           </div>
 
-          {/* Logo visual */}
-          <div className="flex-shrink-0 animate-fade-in-up stagger-2">
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
-              <div className="absolute inset-0 bg-gold/20 rounded-3xl rotate-6" />
-              <div className="absolute inset-0 bg-gold/10 rounded-3xl -rotate-3" />
-              <Image
-                src="/images/logo.jpg"
-                alt="י.א שירותי בית ותחזוקה"
-                fill
-                className="rounded-3xl object-cover relative z-10 shadow-2xl"
-                priority
-              />
+          {/* Image Side */}
+          <div className="relative h-[400px] lg:h-screen lg:absolute lg:left-0 lg:top-0 lg:w-1/2 animate-fade-in delay-200">
+            <Image
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
+              alt="בית מודרני - שירותי בית מקצועיים"
+              fill
+              className="object-cover lg:rounded-r-[3rem] rounded-3xl lg:rounded-none"
+              priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-l from-navy/20 to-transparent lg:rounded-r-[3rem] rounded-3xl lg:rounded-none" />
+
+            {/* Floating review card */}
+            <div className="absolute bottom-6 right-6 left-6 sm:left-auto sm:right-6 sm:w-72 bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-elevated animate-float">
+              <div className="flex items-center gap-3">
+                <Image
+                  src="https://i.pravatar.cc/80?img=32"
+                  alt="לקוחה מרוצה"
+                  width={44}
+                  height={44}
+                  className="rounded-full"
+                />
+                <div className="flex-1">
+                  <div className="flex gap-0.5 mb-1">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <Star key={i} className="w-3.5 h-3.5 text-gold fill-gold" />
+                    ))}
+                  </div>
+                  <p className="text-text-primary text-xs font-medium leading-snug">
+                    &quot;יוליאן הגיע באותו יום. מקצוען אמיתי!&quot;
+                  </p>
+                  <p className="text-text-muted text-[10px] mt-0.5">מיכל כ. | רמת גן</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Bottom wave */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-          <path
-            d="M0 60V30C240 5 480 0 720 10C960 20 1200 45 1440 30V60H0Z"
-            fill="white"
-          />
-        </svg>
       </div>
     </section>
   )

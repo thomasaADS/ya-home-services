@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, MessageCircleQuestion } from 'lucide-react'
 import { faqItems, type FAQItem } from '@/data/faq'
 import Link from 'next/link'
 
@@ -21,17 +21,17 @@ export default function FAQSection({
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <section className="py-16 sm:py-24 bg-white" id="faq">
+    <section className="section-padding bg-surface" id="faq">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         {/* Section header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <span className="text-gold font-semibold text-sm uppercase tracking-wider">
+        <div className="text-center mb-12 sm:mb-14">
+          <div className="inline-flex items-center justify-center w-14 h-14 bg-navy/5 rounded-2xl mb-4">
+            <MessageCircleQuestion className="w-7 h-7 text-navy" />
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-black text-navy mb-3">
             שאלות נפוצות
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-navy mt-3 mb-4">
-            יש שאלות? יש תשובות
           </h2>
-          <span className="gold-line mx-auto" />
+          <span className="gold-accent mx-auto" />
         </div>
 
         {/* FAQ items */}
@@ -39,7 +39,11 @@ export default function FAQSection({
           {limitedItems.map((item, index) => (
             <div
               key={index}
-              className="bg-warm-gray rounded-2xl overflow-hidden border border-gray-100"
+              className={`bg-white rounded-2xl border transition-all ${
+                openIndex === index
+                  ? 'border-navy/10 shadow-card'
+                  : 'border-border hover:border-navy/10'
+              }`}
             >
               <button
                 type="button"
@@ -48,22 +52,31 @@ export default function FAQSection({
                 }
                 className="w-full flex items-center justify-between p-5 sm:p-6 text-right cursor-pointer"
               >
-                <span className="font-bold text-navy text-base sm:text-lg pl-4">
+                <span className="font-semibold text-navy text-base pl-4">
                   {item.question}
                 </span>
-                <ChevronDown
-                  className={`w-5 h-5 text-gold shrink-0 transition-transform duration-300 ${
-                    openIndex === index ? 'rotate-180' : ''
-                  }`}
-                />
+                <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-all ${
+                  openIndex === index ? 'bg-navy' : 'bg-surface'
+                }`}>
+                  <ChevronDown
+                    className={`w-4 h-4 transition-all duration-300 ${
+                      openIndex === index ? 'rotate-180 text-white' : 'text-navy'
+                    }`}
+                  />
+                </div>
               </button>
-              {openIndex === index && (
-                <div className="px-5 sm:px-6 pb-5 sm:pb-6 animate-fade-in">
+              <div
+                className={`overflow-hidden transition-all duration-300 ${
+                  openIndex === index ? 'max-h-96' : 'max-h-0'
+                }`}
+              >
+                <div className="px-5 sm:px-6 pb-5 sm:pb-6">
+                  <div className="h-px bg-border mb-4" />
                   <p className="text-text-secondary leading-relaxed">
                     {item.answer}
                   </p>
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>
@@ -73,7 +86,7 @@ export default function FAQSection({
           <div className="text-center mt-8">
             <Link
               href="/faq"
-              className="inline-flex items-center gap-2 text-gold hover:text-gold-dark font-semibold transition-colors"
+              className="inline-flex items-center gap-2 text-navy hover:text-blue font-semibold text-sm transition-colors"
             >
               לכל השאלות הנפוצות
               <ChevronDown className="w-4 h-4 -rotate-90" />

@@ -30,66 +30,50 @@ const legalLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-dark pt-16 pb-28 lg:pb-8">
+    <footer className="bg-navy pt-16 sm:pt-20 pb-28 lg:pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-12">
-          {/* Brand column */}
+          {/* Brand */}
           <div>
-            <Link href="/" className="flex items-center gap-3 mb-4">
+            <Link href="/" className="flex items-center gap-2.5 mb-5">
               <Image
                 src="/images/logo.jpg"
                 alt="י.א"
-                width={48}
-                height={48}
-                className="rounded-lg w-12 h-12 object-cover"
+                width={44}
+                height={44}
+                className="rounded-xl w-11 h-11 object-cover"
               />
               <div>
-                <span className="text-white font-bold text-lg block">י.א</span>
-                <span className="text-gold text-xs block">
-                  שירותי בית ותחזוקה
-                </span>
+                <span className="text-white font-bold text-lg block leading-none">י.א</span>
+                <span className="text-gold text-xs block mt-0.5">שירותי בית ותחזוקה</span>
               </div>
             </Link>
-            <p className="text-white/50 text-sm leading-relaxed mb-4">
+            <p className="text-white/40 text-sm leading-relaxed mb-5">
               שירותי אינסטלציה, שיפוצים, התקנות ותחזוקה מקצועיים בכל גוש דן.
-              בית בידיים טובות.
             </p>
-            <div className="flex flex-col gap-2">
-              <a
-                href="tel:050-0000000"
-                className="flex items-center gap-2 text-white/70 hover:text-gold text-sm transition-colors"
-              >
-                <Phone className="w-4 h-4" />
-                050-000-0000
+            <div className="flex flex-col gap-2.5">
+              <a href="tel:050-0000000" className="flex items-center gap-2.5 text-white/50 hover:text-gold text-sm transition-colors">
+                <Phone className="w-4 h-4 shrink-0" /> 050-000-0000
               </a>
-              <a
-                href="mailto:info@ya-home.co.il"
-                className="flex items-center gap-2 text-white/70 hover:text-gold text-sm transition-colors"
-              >
-                <Mail className="w-4 h-4" />
-                info@ya-home.co.il
+              <a href="mailto:info@ya-home.co.il" className="flex items-center gap-2.5 text-white/50 hover:text-gold text-sm transition-colors">
+                <Mail className="w-4 h-4 shrink-0" /> info@ya-home.co.il
               </a>
-              <div className="flex items-center gap-2 text-white/70 text-sm">
-                <MapPin className="w-4 h-4" />
-                גוש דן והסביבה
+              <div className="flex items-center gap-2.5 text-white/50 text-sm">
+                <MapPin className="w-4 h-4 shrink-0" /> גוש דן והסביבה
               </div>
-              <div className="flex items-center gap-2 text-white/70 text-sm">
-                <Clock className="w-4 h-4" />
-                א&apos;-ה&apos; 07:00-19:00
+              <div className="flex items-center gap-2.5 text-white/50 text-sm">
+                <Clock className="w-4 h-4 shrink-0" /> א&apos;-ה&apos; 07:00-19:00
               </div>
             </div>
           </div>
 
           {/* Services */}
           <div>
-            <h3 className="text-white font-bold mb-4">שירותים</h3>
-            <ul className="flex flex-col gap-2">
+            <h3 className="text-white font-bold text-sm mb-5">שירותים</h3>
+            <ul className="flex flex-col gap-2.5">
               {serviceLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-white/50 hover:text-gold text-sm transition-colors"
-                  >
+                  <Link href={link.href} className="text-white/40 hover:text-gold text-sm transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -97,29 +81,23 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Quick Links */}
+          {/* Links */}
           <div>
-            <h3 className="text-white font-bold mb-4">ניווט מהיר</h3>
-            <ul className="flex flex-col gap-2">
+            <h3 className="text-white font-bold text-sm mb-5">ניווט</h3>
+            <ul className="flex flex-col gap-2.5">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-white/50 hover:text-gold text-sm transition-colors"
-                  >
+                  <Link href={link.href} className="text-white/40 hover:text-gold text-sm transition-colors">
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-            <h3 className="text-white font-bold mt-6 mb-3">מידע משפטי</h3>
-            <ul className="flex flex-col gap-2">
+            <h3 className="text-white font-bold text-sm mt-6 mb-4">מידע משפטי</h3>
+            <ul className="flex flex-col gap-2.5">
               {legalLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-white/50 hover:text-gold text-sm transition-colors"
-                  >
+                  <Link href={link.href} className="text-white/40 hover:text-gold text-sm transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -127,17 +105,17 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* CTA column */}
+          {/* CTA */}
           <div>
-            <h3 className="text-white font-bold mb-4">צריכים עזרה?</h3>
-            <p className="text-white/50 text-sm mb-4">
-              התקשרו עכשיו לייעוץ חינם וללא התחייבות. אנחנו כאן בשבילכם.
+            <h3 className="text-white font-bold text-sm mb-5">צריכים עזרה?</h3>
+            <p className="text-white/40 text-sm mb-5 leading-relaxed">
+              התקשרו עכשיו לייעוץ חינם וללא התחייבות.
             </p>
             <a
               href="tel:050-0000000"
-              className="inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-dark text-navy font-bold h-12 px-6 rounded-xl transition-colors cursor-pointer w-full"
+              className="flex items-center justify-center gap-2 bg-gold hover:bg-gold-dark text-navy font-bold h-12 px-6 rounded-xl transition-colors cursor-pointer w-full text-sm"
             >
-              <Phone className="w-5 h-5" />
+              <Phone className="w-4 h-4" />
               <span>התקשר עכשיו</span>
             </a>
           </div>
@@ -145,11 +123,11 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-6">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-white/30 text-sm">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p className="text-white/20 text-xs">
               &copy; {new Date().getFullYear()} י.א שירותי בית ותחזוקה. כל הזכויות שמורות.
             </p>
-            <p className="text-white/30 text-xs">
+            <p className="text-white/20 text-xs">
               עסק רשום | ח.פ. 000000000
             </p>
           </div>

@@ -1,14 +1,14 @@
 import type { Metadata } from 'next'
-import { Heebo } from 'next/font/google'
+import { Rubik } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import FloatingCTA from '@/components/FloatingCTA'
 
-const heebo = Heebo({
+const rubik = Rubik({
   subsets: ['hebrew', 'latin'],
   weight: ['300', '400', '500', '600', '700', '800', '900'],
-  variable: '--font-heebo',
+  variable: '--font-rubik',
   display: 'swap',
 })
 
@@ -48,13 +48,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="he" dir="rtl" className={heebo.variable}>
+    <html lang="he" dir="rtl" className={rubik.variable}>
       <head>
         <meta name="geo.region" content="IL" />
         <meta name="geo.placename" content="Gush Dan" />
         <link rel="icon" href="/images/logo.jpg" />
       </head>
-      <body className="font-[family-name:var(--font-heebo)] antialiased bg-white text-text-primary">
+      <body className={`${rubik.className} antialiased bg-white text-text-primary`}>
         <Header />
         <main>{children}</main>
         <Footer />

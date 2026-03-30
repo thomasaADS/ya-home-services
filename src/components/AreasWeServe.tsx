@@ -17,33 +17,33 @@ const areas = [
 
 export default function AreasWeServe() {
   return (
-    <section className="py-16 sm:py-20 bg-warm-gray">
+    <section className="section-padding bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-10">
-          <span className="text-gold font-semibold text-sm uppercase tracking-wider">
-            אזורי שירות
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-navy mt-3 mb-4">
-            מגיעים לכל גוש דן
-          </h2>
-          <span className="gold-line mx-auto" />
-        </div>
-
-        <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
-          {areas.map((area) => (
-            <div
-              key={area}
-              className="inline-flex items-center gap-2 bg-white text-navy font-medium px-4 py-2.5 rounded-xl border border-gray-100 shadow-sm hover:border-gold/30 hover:shadow-md transition-all"
-            >
-              <MapPin className="w-4 h-4 text-gold" />
-              {area}
+        <div className="bg-surface rounded-3xl p-8 sm:p-12">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-navy/5 rounded-2xl mb-4">
+              <MapPin className="w-6 h-6 text-navy" />
             </div>
-          ))}
-        </div>
+            <h2 className="text-2xl sm:text-3xl font-black text-navy">
+              מגיעים לכל גוש דן
+            </h2>
+          </div>
 
-        <p className="text-center text-text-secondary mt-6 text-sm">
-          לא מצאתם את האזור שלכם? התקשרו ונבדוק אם אנחנו מגיעים אליכם.
-        </p>
+          <div className="flex flex-wrap justify-center gap-2.5 max-w-3xl mx-auto">
+            {areas.map((area) => (
+              <span
+                key={area}
+                className="inline-flex items-center gap-1.5 bg-white text-text-secondary font-medium px-4 py-2.5 rounded-xl border border-border text-sm hover:border-navy/20 hover:text-navy hover:shadow-sm transition-all"
+              >
+                {area}
+              </span>
+            ))}
+          </div>
+
+          <p className="text-center text-text-muted mt-6 text-sm">
+            לא מצאתם את האזור שלכם? התקשרו ונבדוק.
+          </p>
+        </div>
       </div>
     </section>
   )

@@ -5,53 +5,41 @@ const steps = [
     icon: Phone,
     number: '01',
     title: 'פנייה ראשונית',
-    description:
-      'התקשרו או השאירו פרטים באתר. נחזור אליכם תוך שעה עם מענה ראשוני ותיאום ביקור.',
+    description: 'התקשרו או השאירו פרטים. נחזור אליכם תוך שעה.',
   },
   {
     icon: Search,
     number: '02',
     title: 'אבחון וייעוץ',
-    description:
-      'נגיע לבית, נבדוק את הצרכים, ונציע פתרון מותאם. הסקר הראשוני — בחינם.',
+    description: 'נגיע לבית, נבדוק את הצרכים, ונציע פתרון מותאם.',
   },
   {
     icon: FileText,
     number: '03',
     title: 'הצעת מחיר שקופה',
-    description:
-      'תקבלו הצעת מחיר ברורה ומפורטת, ללא עלויות נסתרות. מה שסיכמנו — זה מה שתשלמו.',
+    description: 'הצעה ברורה ומפורטת, ללא עלויות נסתרות.',
   },
   {
     icon: Hammer,
     number: '04',
     title: 'ביצוע מקצועי',
-    description:
-      'עבודה נקייה, מדויקת ומהירה. מסיימים בזמן, מנקים אחרינו ונותנים אחריות מלאה.',
+    description: 'עבודה נקייה, מדויקת ומהירה. אחריות מלאה.',
   },
 ]
 
 export default function ProcessSteps() {
   return (
-    <section className="py-16 sm:py-24 bg-navy relative overflow-hidden">
-      {/* Background accent */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-gold/5 rounded-full -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-64 h-64 bg-gold/5 rounded-full translate-x-1/2 translate-y-1/2" />
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
+    <section className="section-padding bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section header */}
         <div className="text-center mb-12 sm:mb-16">
           <span className="text-gold font-semibold text-sm uppercase tracking-wider">
             איך זה עובד
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mt-3 mb-4">
-            תהליך העבודה שלנו
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy mt-2 mb-4">
+            ארבעה צעדים לבית מתוקן
           </h2>
-          <span className="gold-line mx-auto" />
-          <p className="text-white/60 text-lg mt-4 max-w-2xl mx-auto">
-            ארבעה שלבים פשוטים מהפנייה הראשונה ועד לסיום העבודה. שקוף, מקצועי
-            ובלי הפתעות.
-          </p>
+          <span className="gold-accent mx-auto" />
         </div>
 
         {/* Steps */}
@@ -62,21 +50,24 @@ export default function ProcessSteps() {
               <div key={index} className="relative text-center group">
                 {/* Connector line (desktop) */}
                 {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-10 left-0 w-full h-px bg-white/10 -translate-x-1/2" />
+                  <div className="hidden lg:block absolute top-9 left-0 w-full h-[2px] -translate-x-1/2">
+                    <div className="w-full h-full bg-border" />
+                    <div className="absolute top-0 right-0 h-full bg-gold/30" style={{ width: '0%' }} />
+                  </div>
                 )}
 
-                {/* Step number */}
-                <div className="relative inline-flex items-center justify-center w-20 h-20 bg-navy-light border-2 border-gold/30 rounded-2xl mb-6 group-hover:border-gold transition-colors mx-auto">
-                  <Icon className="w-8 h-8 text-gold" />
-                  <span className="absolute -top-3 -left-3 w-8 h-8 bg-gold text-navy text-sm font-black rounded-full flex items-center justify-center">
+                {/* Step circle */}
+                <div className="relative inline-flex items-center justify-center w-[72px] h-[72px] bg-surface group-hover:bg-navy border-2 border-border group-hover:border-navy rounded-2xl mb-6 transition-all duration-300 mx-auto">
+                  <Icon className="w-7 h-7 text-navy group-hover:text-gold transition-colors duration-300" />
+                  <span className="absolute -top-2.5 -left-2.5 w-7 h-7 bg-gold text-white text-xs font-black rounded-lg flex items-center justify-center shadow-sm">
                     {step.number}
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold text-white mb-3">
+                <h3 className="text-lg font-bold text-navy mb-2">
                   {step.title}
                 </h3>
-                <p className="text-white/60 leading-relaxed">
+                <p className="text-text-muted text-sm leading-relaxed max-w-[200px] mx-auto">
                   {step.description}
                 </p>
               </div>
