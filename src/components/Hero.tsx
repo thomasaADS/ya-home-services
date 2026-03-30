@@ -76,8 +76,8 @@ export default function Hero() {
           {/* Image Side */}
           <div className="relative h-[400px] lg:h-screen lg:absolute lg:left-0 lg:top-0 lg:w-1/2 animate-fade-in delay-200">
             <Image
-              src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1200&q=80"
-              alt="פנים בית מודרני - שירותי שיפוץ ותחזוקה י.א"
+              src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80"
+              alt="סלון מודרני - שירותי שיפוץ ותחזוקה י.א"
               fill
               className="object-cover lg:rounded-r-[3rem] rounded-3xl lg:rounded-none"
               priority
