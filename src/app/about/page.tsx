@@ -4,9 +4,9 @@ import { Award, Clock, ShieldCheck, Users, Heart, Target } from 'lucide-react'
 import ContactCTA from '@/components/ContactCTA'
 
 export const metadata: Metadata = {
-  title: 'אודות - הכירו את יוליאן אברומוביץ',
+  title: 'אודות - הכירו את יוליאן אברמוביץ',
   description:
-    'הכירו את יוליאן אברומוביץ, המקצוען מאחורי י.א שירותי בית ותחזוקה. ניסיון של למעלה מעשור בתחזוקת בתים, אינסטלציה ושיפוצים בגוש דן.',
+    'הכירו את יוליאן אברמוביץ, המקצוען מאחורי י.א שירותי בית ותחזוקה. ניסיון של למעלה מעשור בתחזוקת בתים, אינסטלציה ושיפוצים בגוש דן.',
 }
 
 const values = [
@@ -47,7 +47,7 @@ export default function AboutPage() {
             </h1>
             <span className="gold-line mx-auto" />
             <p className="text-white/60 text-lg mt-4 max-w-2xl mx-auto">
-              מאחורי השם י.א עומד יוליאן אברומוביץ — בעל מקצוע עם ניסיון של למעלה מעשור בתחום שירותי הבית.
+              מאחורי השם י.א עומד יוליאן אברמוביץ — בעל מקצוע עם ניסיון של למעלה מעשור בתחום שירותי הבית.
             </p>
           </div>
         </div>
@@ -74,7 +74,7 @@ export default function AboutPage() {
             {/* Content */}
             <div className="lg:w-3/5">
               <h2 className="text-3xl sm:text-4xl font-black text-navy mb-6">
-                יוליאן אברומוביץ
+                יוליאן אברמוביץ
                 <span className="block text-gold text-xl sm:text-2xl font-bold mt-1">
                   מייסד י.א שירותי בית ותחזוקה
                 </span>

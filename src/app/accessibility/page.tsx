@@ -60,7 +60,7 @@ export default function AccessibilityPage() {
 
             <div className="bg-warm-gray rounded-2xl p-6 not-prose">
               <p className="text-text-primary mb-2">
-                <strong>רכז/ת נגישות:</strong> יוליאן אברומוביץ
+                <strong>רכז/ת נגישות:</strong> יוליאן אברמוביץ
               </p>
               <p className="text-text-primary mb-2">
                 <strong>טלפון:</strong> <span dir="ltr">050-000-0000</span>

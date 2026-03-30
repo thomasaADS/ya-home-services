@@ -4,6 +4,7 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import FloatingCTA from '@/components/FloatingCTA'
+import AccessibilityWidget from '@/components/AccessibilityWidget'
 
 const rubik = Rubik({
   subsets: ['hebrew', 'latin'],
@@ -59,6 +60,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <FloatingCTA />
+        <AccessibilityWidget />
       </body>
     </html>
   )

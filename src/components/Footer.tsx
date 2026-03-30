@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, MapPin, Clock, Mail } from 'lucide-react'
+import { Phone, MapPin, Clock, Mail, Instagram, Facebook } from 'lucide-react'
 
 const serviceLinks = [
   { href: '/services/plumbing', label: 'אינסטלציה' },
@@ -48,9 +48,29 @@ export default function Footer() {
                 <span className="text-gold text-xs block mt-0.5">שירותי בית ותחזוקה</span>
               </div>
             </Link>
-            <p className="text-white/40 text-sm leading-relaxed mb-5">
+            <p className="text-white/40 text-sm leading-relaxed mb-4">
               שירותי אינסטלציה, שיפוצים, התקנות ותחזוקה מקצועיים בכל גוש דן.
             </p>
+            <div className="flex items-center gap-2.5 mb-5">
+              <a
+                href="https://www.instagram.com/ya.home.services.il/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center text-white/60 hover:text-gold transition-all"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.facebook.com/Y.AHomeSolutions/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center text-white/60 hover:text-gold transition-all"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-4 h-4" />
+              </a>
+            </div>
             <div className="flex flex-col gap-2.5">
               <a href="tel:050-0000000" className="flex items-center gap-2.5 text-white/50 hover:text-gold text-sm transition-colors">
                 <Phone className="w-4 h-4 shrink-0" /> 050-000-0000
