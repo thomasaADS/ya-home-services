@@ -5,6 +5,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import FloatingCTA from '@/components/FloatingCTA'
 import AccessibilityWidget from '@/components/AccessibilityWidget'
+import { ScrollProgress } from '@/components/motion'
 
 const rubik = Rubik({
   subsets: ['hebrew', 'latin'],
@@ -56,6 +57,7 @@ export default function RootLayout({
         <link rel="icon" href="/images/logo.jpg" />
       </head>
       <body className={`${rubik.className} antialiased bg-white text-text-primary`}>
+        <ScrollProgress />
         <Header />
         <main>{children}</main>
         <Footer />
