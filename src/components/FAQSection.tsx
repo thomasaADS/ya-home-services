@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { AnimatePresence, motion } from 'motion/react'
 import { ChevronDown, MessageCircleQuestion } from 'lucide-react'
 import { faqItems, type FAQItem } from '@/data/faq'
 import Link from 'next/link'
@@ -58,25 +59,36 @@ export default function FAQSection({
                 <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-all ${
                   openIndex === index ? 'bg-navy' : 'bg-surface'
                 }`}>
-                  <ChevronDown
-                    className={`w-4 h-4 transition-all duration-300 ${
-                      openIndex === index ? 'rotate-180 text-white' : 'text-navy'
-                    }`}
-                  />
+                  <motion.div
+                    animate={{ rotate: openIndex === index ? 180 : 0 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+                  >
+                    <ChevronDown
+                      className={`w-4 h-4 transition-colors ${
+                        openIndex === index ? 'text-white' : 'text-navy'
+                      }`}
+                    />
+                  </motion.div>
                 </div>
               </button>
-              <div
-                className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? 'max-h-96' : 'max-h-0'
-                }`}
-              >
-                <div className="px-5 sm:px-6 pb-5 sm:pb-6">
-                  <div className="h-px bg-border mb-4" />
-                  <p className="text-text-secondary leading-relaxed">
-                    {item.answer}
-                  </p>
-                </div>
-              </div>
+              <AnimatePresence initial={false}>
+                {openIndex === index && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="px-5 sm:px-6 pb-5 sm:pb-6">
+                      <div className="h-px bg-border mb-4" />
+                      <p className="text-text-secondary leading-relaxed">
+                        {item.answer}
+                      </p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           ))}
         </div>

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { AnimatePresence, motion } from 'motion/react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X, Phone, ChevronDown } from 'lucide-react'
@@ -39,33 +40,41 @@ export default function Header() {
   }, [])
 
   return (
-    <header
+    <motion.header
+      animate={{ height: scrolled ? 64 : 72 }}
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
       className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
         scrolled
           ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-border'
           : 'bg-white/80 backdrop-blur-sm'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16 sm:h-[72px]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-full">
+        <div className="flex items-center justify-between h-full">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 shrink-0">
-            <Image
-              src="/images/logo.jpg"
-              alt="י.א שירותי בית ותחזוקה"
-              width={44}
-              height={44}
-              className="rounded-xl w-9 h-9 sm:w-11 sm:h-11 object-cover"
-              priority
-            />
-            <div>
-              <span className="text-navy font-bold text-base sm:text-lg leading-none block">
-                י.א
-              </span>
-              <span className="text-text-muted text-[10px] sm:text-xs leading-none block mt-0.5">
-                שירותי בית ותחזוקה
-              </span>
-            </div>
+            <motion.div
+              animate={{ scale: scrolled ? 0.9 : 1 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              className="flex items-center gap-2.5"
+            >
+              <Image
+                src="/images/logo.jpg"
+                alt="י.א שירותי בית ותחזוקה"
+                width={44}
+                height={44}
+                className="rounded-xl w-9 h-9 sm:w-11 sm:h-11 object-cover"
+                priority
+              />
+              <div>
+                <span className="text-navy font-bold text-base sm:text-lg leading-none block">
+                  י.א
+                </span>
+                <span className="text-text-muted text-[10px] sm:text-xs leading-none block mt-0.5">
+                  שירותי בית ותחזוקה
+                </span>
+              </div>
+            </motion.div>
           </Link>
 
           {/* Desktop Nav */}
@@ -83,17 +92,25 @@ export default function Header() {
                 {/* Dropdown */}
                 {link.children && (
                   <div className="absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                    <div className="bg-white rounded-xl shadow-elevated border border-border p-2 min-w-[220px]">
-                      {link.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className="block text-text-secondary hover:text-navy hover:bg-surface px-3.5 py-2.5 text-sm rounded-lg transition-colors"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
+                    <AnimatePresence>
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2, ease: 'easeOut' }}
+                        className="bg-white rounded-xl shadow-elevated border border-border p-2 min-w-[220px]"
+                      >
+                        {link.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="block text-text-secondary hover:text-navy hover:bg-surface px-3.5 py-2.5 text-sm rounded-lg transition-colors"
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    </AnimatePresence>
                   </div>
                 )}
               </div>
@@ -124,57 +141,70 @@ export default function Header() {
       </div>
 
       {/* Mobile Nav */}
-      {isOpen && (
-        <div className="lg:hidden bg-white border-t border-border animate-fade-in">
-          <nav className="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-0.5">
-            {navLinks.map((link) => (
-              <div key={link.href}>
-                {link.children ? (
-                  <>
-                    <button
-                      type="button"
-                      onClick={() => setServicesOpen(!servicesOpen)}
-                      className="w-full flex items-center justify-between text-text-secondary hover:text-navy px-4 py-3 text-base font-medium transition-colors rounded-lg hover:bg-surface cursor-pointer"
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+            className="lg:hidden bg-white border-t border-border"
+          >
+            <nav className="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-0.5">
+              {navLinks.map((link, index) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                >
+                  {link.children ? (
+                    <>
+                      <button
+                        type="button"
+                        onClick={() => setServicesOpen(!servicesOpen)}
+                        className="w-full flex items-center justify-between text-text-secondary hover:text-navy px-4 py-3 text-base font-medium transition-colors rounded-lg hover:bg-surface cursor-pointer"
+                      >
+                        {link.label}
+                        <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+                      </button>
+                      {servicesOpen && (
+                        <div className="pr-4 pb-1">
+                          {link.children.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              onClick={() => setIsOpen(false)}
+                              className="block text-text-secondary hover:text-navy px-4 py-2.5 text-sm transition-colors rounded-lg hover:bg-surface"
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className="block text-text-secondary hover:text-navy px-4 py-3 text-base font-medium transition-colors rounded-lg hover:bg-surface"
                     >
                       {link.label}
-                      <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
-                    </button>
-                    {servicesOpen && (
-                      <div className="pr-4 pb-1">
-                        {link.children.map((child) => (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            onClick={() => setIsOpen(false)}
-                            className="block text-text-secondary hover:text-navy px-4 py-2.5 text-sm transition-colors rounded-lg hover:bg-surface"
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <Link
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className="block text-text-secondary hover:text-navy px-4 py-3 text-base font-medium transition-colors rounded-lg hover:bg-surface"
-                  >
-                    {link.label}
-                  </Link>
-                )}
-              </div>
-            ))}
-            <a
-              href="tel:050-0000000"
-              className="flex items-center justify-center gap-2 bg-navy text-white font-medium h-12 px-5 rounded-xl transition-colors mt-2 cursor-pointer"
-            >
-              <Phone className="w-4 h-4" />
-              <span>התקשר עכשיו</span>
-            </a>
-          </nav>
-        </div>
-      )}
-    </header>
+                    </Link>
+                  )}
+                </motion.div>
+              ))}
+              <a
+                href="tel:050-0000000"
+                className="flex items-center justify-center gap-2 bg-navy text-white font-medium h-12 px-5 rounded-xl transition-colors mt-2 cursor-pointer"
+              >
+                <Phone className="w-4 h-4" />
+                <span>התקשר עכשיו</span>
+              </a>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   )
 }
