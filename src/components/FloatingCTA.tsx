@@ -2,7 +2,6 @@
 
 import { Phone } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import { AnimatePresence, motion } from 'motion/react'
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -23,65 +22,49 @@ export default function FloatingCTA() {
 
   return (
     <>
-      {/* WhatsApp floating button - always visible */}
-      <motion.a
+      {/* WhatsApp floating button */}
+      <a
         href="#"
-        animate={{ scale: [1, 1.1, 1] }}
-        transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
         className="fixed left-4 bottom-20 lg:bottom-24 z-40 w-12 h-12 bg-[#25D366] hover:bg-[#20BD5A] text-white rounded-full shadow-lg hover:shadow-xl transition-all flex items-center justify-center cursor-pointer"
         aria-label="WhatsApp"
         title="שלח הודעה בוואטסאפ"
       >
         <WhatsAppIcon className="w-6 h-6" />
-      </motion.a>
+      </a>
 
       {/* Mobile sticky bottom bar */}
-      <AnimatePresence>
-        {visible && (
-          <motion.div
-            initial={{ y: 100 }}
-            animate={{ y: 0 }}
-            exit={{ y: 100 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="fixed bottom-0 right-0 left-0 z-40 lg:hidden bg-white/95 backdrop-blur-md border-t border-border px-3 py-2.5 safe-bottom"
-          >
-            <div className="flex gap-2.5">
-              <a
-                href="tel:050-0000000"
-                className="flex-1 flex items-center justify-center gap-2 bg-navy hover:bg-navy-light text-white font-bold h-12 rounded-xl transition-colors cursor-pointer text-sm"
-              >
-                <Phone className="w-4 h-4" />
-                <span>התקשר עכשיו</span>
-              </a>
-              <a
-                href="#"
-                className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold h-12 px-5 rounded-xl transition-colors cursor-pointer text-sm"
-              >
-                <WhatsAppIcon className="w-5 h-5" />
-                <span>וואטסאפ</span>
-              </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {visible && (
+        <div className="fixed bottom-0 right-0 left-0 z-40 lg:hidden bg-white/95 backdrop-blur-md border-t border-border px-3 py-2.5 safe-bottom">
+          <div className="flex gap-2.5">
+            <a
+              href="tel:0503336540"
+              className="flex-1 flex items-center justify-center gap-2 bg-navy hover:bg-navy-light text-white font-bold h-12 rounded-xl transition-colors cursor-pointer text-sm"
+            >
+              <Phone className="w-4 h-4" />
+              <span>התקשר עכשיו</span>
+            </a>
+            <a
+              href="#"
+              className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold h-12 px-5 rounded-xl transition-colors cursor-pointer text-sm"
+            >
+              <WhatsAppIcon className="w-5 h-5" />
+              <span>וואטסאפ</span>
+            </a>
+          </div>
+        </div>
+      )}
 
       {/* Desktop floating phone button */}
-      <AnimatePresence>
-        {visible && (
-          <motion.a
-            href="tel:050-0000000"
-            initial={{ x: 100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: 100, opacity: 0 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="hidden lg:flex fixed bottom-8 right-8 z-40 items-center gap-2.5 bg-navy hover:bg-navy-light text-white font-semibold h-12 px-6 rounded-full transition-all cursor-pointer shadow-elevated hover:shadow-2xl hover:scale-105"
-            aria-label="התקשר עכשיו"
-          >
-            <Phone className="w-4 h-4" />
-            <span className="text-sm">050-000-0000</span>
-          </motion.a>
-        )}
-      </AnimatePresence>
+      {visible && (
+        <a
+          href="tel:0503336540"
+          className="hidden lg:flex fixed bottom-8 right-8 z-40 items-center gap-2.5 bg-navy hover:bg-navy-light text-white font-semibold h-12 px-6 rounded-full transition-colors cursor-pointer shadow-elevated"
+          aria-label="התקשר עכשיו"
+        >
+          <Phone className="w-4 h-4" />
+          <span className="text-sm">050-333-6540</span>
+        </a>
+      )}
     </>
   )
 }

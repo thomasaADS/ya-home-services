@@ -86,10 +86,7 @@ export default function PrivacyPage() {
                 <strong>י.א שירותי בית ותחזוקה</strong>
               </p>
               <p className="text-text-primary mb-2">
-                <strong>טלפון:</strong> <span dir="ltr">050-000-0000</span>
-              </p>
-              <p className="text-text-primary mb-2">
-                <strong>אימייל:</strong> info@ya-home.co.il
+                <strong>טלפון:</strong> <span dir="ltr">050-333-6540</span>
               </p>
             </div>
 

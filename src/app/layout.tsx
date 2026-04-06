@@ -5,7 +5,6 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import FloatingCTA from '@/components/FloatingCTA'
 import AccessibilityWidget from '@/components/AccessibilityWidget'
-import { ScrollProgress } from '@/components/motion'
 
 const rubik = Rubik({
   subsets: ['hebrew', 'latin'],
@@ -20,7 +19,7 @@ export const metadata: Metadata = {
     template: '%s | י.א שירותי בית ותחזוקה',
   },
   description:
-    'י.א שירותי בית ותחזוקה - אינסטלציה, שיפוצים כלליים, התקנת רהיטים, גופי תאורה, תליית תמונות והחלפת שקעים. שירות מקצועי ואמין בכל גוש דן. התקשרו עכשיו!',
+    'י.א שירותי בית ותחזוקה - אינסטלציה, שיפוצים כלליים, התקנת רהיטים, גופי תאורה, תליית תמונות ותחזוקה. שירות מקצועי ואמין בכל גוש דן. התקשרו עכשיו!',
   keywords: [
     'אינסטלציה גוש דן',
     'שיפוצים תל אביב',
@@ -28,7 +27,7 @@ export const metadata: Metadata = {
     'התקנת רהיטים',
     'שירותי בית',
     'תחזוקת בית',
-    'החלפת שקעים',
+    'תחזוקת בית גוש דן',
     'התקנת גופי תאורה',
     'תליית תמונות',
     'שיפוצניק',
@@ -57,7 +56,6 @@ export default function RootLayout({
         <link rel="icon" href="/images/logo.jpg" />
       </head>
       <body className={`${rubik.className} antialiased bg-white text-text-primary`}>
-        <ScrollProgress />
         <Header />
         <main>{children}</main>
         <Footer />

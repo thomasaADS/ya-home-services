@@ -50,8 +50,8 @@ export default async function ServicePage({ params }: Props) {
               {service.fullDescription}
             </p>
             <a
-              href="tel:050-0000000"
-              className="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-navy font-bold h-14 px-8 rounded-xl transition-all cursor-pointer text-lg mt-8 shadow-lg shadow-gold/20"
+              href="tel:0503336540"
+              className="inline-flex items-center gap-2 bg-white hover:bg-surface text-navy font-bold h-14 px-8 rounded-xl transition-all cursor-pointer text-lg mt-8 shadow-lg"
             >
               <Phone className="w-5 h-5" />
               <span>התקשר לייעוץ חינם</span>
@@ -111,8 +111,8 @@ export default async function ServicePage({ params }: Props) {
                   {service.whyProfessional}
                 </p>
                 <a
-                  href="tel:050-0000000"
-                  className="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-navy font-bold h-12 px-6 rounded-xl transition-colors cursor-pointer mt-6"
+                  href="tel:0503336540"
+                  className="inline-flex items-center gap-2 bg-white hover:bg-surface text-navy font-bold h-12 px-6 rounded-xl transition-colors cursor-pointer mt-6"
                 >
                   <Phone className="w-5 h-5" />
                   <span>התקשר עכשיו</span>

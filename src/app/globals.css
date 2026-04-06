@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand colors - derived from logo */
-  --color-navy: #1B2A4A;
-  --color-navy-light: #243556;
-  --color-navy-dark: #111D33;
-  --color-gold: #C8A96E;
-  --color-gold-light: #D4BA85;
-  --color-gold-dark: #B89650;
+  /* Primary blue palette */
+  --color-navy: #1E40AF;
+  --color-navy-light: #2563EB;
+  --color-navy-dark: #1E3A8A;
+  --color-gold: #3B82F6;
+  --color-gold-light: #60A5FA;
+  --color-gold-dark: #2563EB;
 
-  /* Interactive blue - inspired by pro.co.il */
+  /* Interactive blue */
   --color-blue: #2563EB;
   --color-blue-light: #3B82F6;
   --color-blue-dark: #1D4ED8;
@@ -22,21 +22,26 @@
   /* Surfaces */
   --color-surface: #F8FAFC;
   --color-surface-alt: #F1F5F9;
-  --color-surface-warm: #FAFAF8;
+  --color-surface-warm: #F8FAFC;
 
   /* Text */
   --color-text-primary: #0F172A;
   --color-text-secondary: #475569;
   --color-text-muted: #94A3B8;
+  --color-text-light: #64748B;
 
   /* Borders */
   --color-border: #E2E8F0;
   --color-border-light: #F1F5F9;
 
+  /* Warm gray (used in some components) */
+  --color-warm-gray: #F1F5F9;
+  --color-warm-gray-dark: #E2E8F0;
+
   /* Shadows */
-  --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
-  --shadow-card-hover: 0 4px 12px rgba(0,0,0,0.08), 0 12px 28px rgba(0,0,0,0.06);
-  --shadow-elevated: 0 8px 30px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+  --shadow-card-hover: 0 4px 12px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.04);
+  --shadow-elevated: 0 8px 24px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.03);
 
   --font-rubik: 'Rubik', sans-serif;
 }
@@ -61,11 +66,20 @@ body {
 
 /* Animations handled by motion/react */
 
-/* Gold accent bar */
+/* Blue divider line */
+.gold-line {
+  width: 48px;
+  height: 3px;
+  background: var(--color-navy);
+  border-radius: 2px;
+  display: block;
+}
+
+/* Blue accent bar */
 .gold-accent {
   width: 48px;
   height: 3px;
-  background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light));
+  background: linear-gradient(90deg, var(--color-navy), var(--color-navy-light));
   border-radius: 2px;
   display: block;
 }
@@ -126,36 +140,3 @@ body {
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
-/* Shimmer border effect for featured service card */
-.shimmer-border {
-  position: relative;
-  border-radius: 1.5rem;
-}
-.shimmer-border::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  border-radius: 1.5rem;
-  padding: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(200, 169, 110, 0.6) 25%,
-    rgba(200, 169, 110, 0.9) 50%,
-    rgba(200, 169, 110, 0.6) 75%,
-    transparent 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 3s linear infinite;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  z-index: 1;
-  pointer-events: none;
-}
-@keyframes shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}

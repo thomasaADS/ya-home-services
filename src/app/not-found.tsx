@@ -14,7 +14,7 @@ export default function NotFound() {
         </p>
         <Link
           href="/"
-          className="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-navy font-bold h-12 px-6 rounded-xl transition-colors cursor-pointer"
+          className="inline-flex items-center gap-2 bg-white hover:bg-surface text-navy font-bold h-12 px-6 rounded-xl transition-colors cursor-pointer"
         >
           <Home className="w-5 h-5" />
           <span>חזרה לדף הבית</span>

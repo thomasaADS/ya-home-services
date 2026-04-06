@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Phone, Mail, MapPin, Clock } from 'lucide-react'
+import { Phone, MapPin, Clock } from 'lucide-react'
 import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
@@ -12,16 +12,9 @@ const contactInfo = [
   {
     icon: Phone,
     title: 'טלפון',
-    value: '050-000-0000',
-    href: 'tel:050-0000000',
+    value: '050-333-6540',
+    href: 'tel:0503336540',
     description: 'זמינים א\'-ה\' 07:00-19:00',
-  },
-  {
-    icon: Mail,
-    title: 'אימייל',
-    value: 'info@ya-home.co.il',
-    href: 'mailto:info@ya-home.co.il',
-    description: 'מענה תוך 24 שעות',
   },
   {
     icon: MapPin,
@@ -118,8 +111,8 @@ export default function ContactPage() {
                   בהקדם.
                 </p>
                 <a
-                  href="tel:050-0000000"
-                  className="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-navy font-bold h-12 px-6 rounded-xl transition-colors cursor-pointer"
+                  href="tel:0503336540"
+                  className="inline-flex items-center gap-2 bg-white hover:bg-surface text-navy font-bold h-12 px-6 rounded-xl transition-colors cursor-pointer"
                 >
                   <Phone className="w-5 h-5" />
                   <span>התקשר עכשיו</span>

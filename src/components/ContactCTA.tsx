@@ -1,24 +1,15 @@
 'use client'
 
-import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'motion/react'
 import Image from 'next/image'
 import { Phone, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
-import { AnimatedSection, MagneticButton } from '@/components/motion'
+import { AnimatedSection } from '@/components/motion'
 
 export default function ContactCTA() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start'],
-  })
-  const bgY = useTransform(scrollYProgress, [0, 1], [0, -60])
-
   return (
-    <section ref={sectionRef} className="relative py-20 sm:py-28 overflow-hidden">
-      {/* Background image with parallax */}
-      <motion.div className="absolute inset-0" style={{ y: bgY }}>
+    <section className="relative py-20 sm:py-28 overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0">
         <Image
           src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1920&q=80"
           alt=""
@@ -26,7 +17,7 @@ export default function ContactCTA() {
           className="object-cover"
           sizes="100vw"
         />
-      </motion.div>
+      </div>
       {/* Overlay */}
       <div className="absolute inset-0 bg-navy/85" />
 
@@ -39,39 +30,28 @@ export default function ContactCTA() {
             אל תדחו את זה. התקשרו עכשיו ונתאם ביקור בזמן שנוח לכם.
             שיחת הייעוץ הראשונית — בחינם.
           </p>
-        </AnimatedSection>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <MagneticButton href="tel:050-0000000">
-            <motion.div
-              animate={{
-                boxShadow: [
-                  '0 0 0 0 rgba(200,169,110,0)',
-                  '0 0 20px 5px rgba(200,169,110,0.3)',
-                  '0 0 0 0 rgba(200,169,110,0)',
-                ],
-              }}
-              transition={{ repeat: Infinity, duration: 2 }}
-              className="inline-flex items-center justify-center gap-2.5 bg-gold hover:bg-gold-dark text-navy font-bold h-14 px-8 rounded-2xl transition-all cursor-pointer text-lg"
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="tel:0503336540"
+              className="inline-flex items-center justify-center gap-2.5 bg-white text-navy font-bold h-14 px-8 rounded-2xl transition-colors hover:bg-surface cursor-pointer text-lg"
             >
               <Phone className="w-5 h-5" />
               <span>התקשר עכשיו</span>
-            </motion.div>
-          </MagneticButton>
-          <MagneticButton>
+            </a>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold h-14 px-8 rounded-2xl transition-all cursor-pointer text-lg border border-white/20"
+              className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold h-14 px-8 rounded-2xl transition-colors cursor-pointer text-lg border border-white/20"
             >
               <span>השאר פרטים</span>
               <ArrowLeft className="w-4 h-4" />
             </Link>
-          </MagneticButton>
-        </div>
+          </div>
 
-        <p className="text-white/30 text-sm mt-8">
-          זמינים א&apos;-ה&apos; | מענה תוך שעה | ללא התחייבות
-        </p>
+          <p className="text-white/30 text-sm mt-8">
+            זמינים א&apos;-ה&apos; | מענה תוך שעה | ללא התחייבות
+          </p>
+        </AnimatedSection>
       </div>
     </section>
   )

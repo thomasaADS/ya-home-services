@@ -19,7 +19,6 @@ const navLinks = [
       { href: '/services/handyman', label: 'הנדי מן' },
       { href: '/services/lighting', label: 'התקנת גופי תאורה' },
       { href: '/services/hanging', label: 'תליית תמונות ואביזרים' },
-      { href: '/services/electrical', label: 'החלפת שקעים ומפסקים' },
       { href: '/services/maintenance', label: 'תחזוקת בית' },
     ],
   },
@@ -40,10 +39,8 @@ export default function Header() {
   }, [])
 
   return (
-    <motion.header
-      animate={{ height: scrolled ? 64 : 72 }}
-      transition={{ duration: 0.3, ease: 'easeInOut' }}
-      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
+    <header
+      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-200 h-16 sm:h-[72px] ${
         scrolled
           ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-border'
           : 'bg-white/80 backdrop-blur-sm'
@@ -53,11 +50,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-full">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 shrink-0">
-            <motion.div
-              animate={{ scale: scrolled ? 0.9 : 1 }}
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="flex items-center gap-2.5"
-            >
+            <div className="flex items-center gap-2.5">
               <Image
                 src="/images/logo.jpg"
                 alt="י.א שירותי בית ותחזוקה"
@@ -74,7 +67,7 @@ export default function Header() {
                   שירותי בית ותחזוקה
                 </span>
               </div>
-            </motion.div>
+            </div>
           </Link>
 
           {/* Desktop Nav */}
@@ -120,11 +113,11 @@ export default function Header() {
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
             <a
-              href="tel:050-0000000"
+              href="tel:0503336540"
               className="inline-flex items-center gap-2 bg-navy hover:bg-navy-light text-white font-medium h-10 px-5 rounded-xl transition-colors cursor-pointer text-sm"
             >
               <Phone className="w-4 h-4" />
-              <span>050-000-0000</span>
+              <span>050-333-6540</span>
             </a>
           </div>
 
@@ -151,13 +144,8 @@ export default function Header() {
             className="lg:hidden bg-white border-t border-border"
           >
             <nav className="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-0.5">
-              {navLinks.map((link, index) => (
-                <motion.div
-                  key={link.href}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                >
+              {navLinks.map((link) => (
+                <div key={link.href}>
                   {link.children ? (
                     <>
                       <button
@@ -192,10 +180,10 @@ export default function Header() {
                       {link.label}
                     </Link>
                   )}
-                </motion.div>
+                </div>
               ))}
               <a
-                href="tel:050-0000000"
+                href="tel:0503336540"
                 className="flex items-center justify-center gap-2 bg-navy text-white font-medium h-12 px-5 rounded-xl transition-colors mt-2 cursor-pointer"
               >
                 <Phone className="w-4 h-4" />
@@ -205,6 +193,6 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </header>
   )
 }

@@ -88,7 +88,6 @@ export default function ContactForm() {
             <option value="handyman">הנדי מן</option>
             <option value="lighting">התקנת גופי תאורה</option>
             <option value="hanging">תליית תמונות ואביזרים</option>
-            <option value="electrical">החלפת שקעים ומפסקים</option>
             <option value="maintenance">תחזוקת בית</option>
             <option value="other">אחר</option>
           </select>
