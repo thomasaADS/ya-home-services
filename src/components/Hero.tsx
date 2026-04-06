@@ -3,9 +3,27 @@
 import Image from 'next/image'
 import { Phone, ArrowLeft, Star, Shield, Clock } from 'lucide-react'
 import Link from 'next/link'
-import { motion } from 'motion/react'
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'motion/react'
+
+const slogans = [
+  'כי כשמשהו נשבר בבית, הדבר הראשון שאומרים זה "יאאא..."',
+  'יא, מי קרא לאינסטלטור? אנחנו כבר פה.',
+  'יא, תתקן לי את הדלת — היא חורקת מאז 2019.',
+  'יא, הברז מטפטף! — רגע, אנחנו בדרך.',
+  'יא ביתי, יא נעימי — בואו נתקן אותך.',
+]
 
 export default function Hero() {
+  const [sloganIndex, setSloganIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSloganIndex((prev) => (prev + 1) % slogans.length)
+    }, 4000)
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <section className="relative min-h-screen bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -34,16 +52,29 @@ export default function Hero() {
               <span className="text-blue">טובות</span>
             </motion.h1>
 
-            {/* Subheadline */}
-            <motion.p
-              className="text-lg sm:text-xl text-text-secondary max-w-lg mb-10 leading-relaxed"
+            {/* Rotating slogan */}
+            <motion.div
+              className="max-w-lg mb-10 h-[80px] sm:h-[72px]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.2 }}
             >
-              אינסטלציה, שיפוצים, התקנות ותחזוקה מקצועית לכל בית.
-              שיחת ייעוץ ראשונית — ללא עלות.
-            </motion.p>
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={sloganIndex}
+                  className="text-lg sm:text-xl text-text-secondary leading-relaxed"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {slogans[sloganIndex]}
+                </motion.p>
+              </AnimatePresence>
+              <p className="text-text-muted text-base mt-2">
+                אינסטלציה, שיפוצים, התקנות ותחזוקה מקצועית לכל בית.
+              </p>
+            </motion.div>
 
             {/* CTAs */}
             <motion.div
