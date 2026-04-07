@@ -22,7 +22,6 @@ const navLinks = [
       { href: '/services/maintenance', label: 'תחזוקת בית' },
     ],
   },
-  { href: '/gallery', label: 'פרויקטים' },
   { href: '/faq', label: 'שאלות נפוצות' },
   { href: '/contact', label: 'צור קשר' },
 ]

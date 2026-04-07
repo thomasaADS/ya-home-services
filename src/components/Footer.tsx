@@ -16,7 +16,6 @@ const quickLinks = [
   { href: '/', label: 'ראשי' },
   { href: '/about', label: 'אודות' },
   { href: '/services', label: 'שירותים' },
-  { href: '/gallery', label: 'פרויקטים' },
   { href: '/faq', label: 'שאלות נפוצות' },
   { href: '/contact', label: 'צור קשר' },
 ]
