@@ -24,7 +24,9 @@ export default function FloatingCTA() {
     <>
       {/* WhatsApp floating button */}
       <a
-        href="#"
+        href="https://wa.me/972503336540"
+        target="_blank"
+        rel="noopener noreferrer"
         className="fixed left-4 bottom-20 lg:bottom-24 z-40 w-12 h-12 bg-[#25D366] hover:bg-[#20BD5A] text-white rounded-full shadow-lg hover:shadow-xl transition-all flex items-center justify-center cursor-pointer"
         aria-label="WhatsApp"
         title="שלח הודעה בוואטסאפ"
@@ -44,7 +46,9 @@ export default function FloatingCTA() {
               <span>התקשר עכשיו</span>
             </a>
             <a
-              href="#"
+              href="https://wa.me/972503336540"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold h-12 px-5 rounded-xl transition-colors cursor-pointer text-sm"
             >
               <WhatsAppIcon className="w-5 h-5" />
