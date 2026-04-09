@@ -143,7 +143,7 @@ export default function Footer() {
               &copy; {new Date().getFullYear()} י.א שירותי בית ותחזוקה. כל הזכויות שמורות.
             </p>
             <p className="text-white/20 text-xs">
-              עסק רשום | ח.פ. 000000000
+              עסק רשום | ח.פ. 036678894
             </p>
           </div>
         </div>
